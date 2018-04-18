@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html data-require="math sipsense">
+<head>
+    <meta https-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="These are question on Data Quality Rules">
+    <meta name="keywords" content="Replace this text with optional tags (key words for search engine)">
+    <meta name="streak_required" content="5">
+    <title>IE Template 5: Triangle Hierarchy Drag and Drop</title>
+    <script src="../khan-exercise.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/media.dqrulebooks.bl.ee/Reference_Folder/DQM_ThemeJS.js"></script>
+    <link rel="stylesheet" media="screen" href="https://s3-eu-west-1.amazonaws.com/media.dqrulebooks.bl.ee/Reference_Folder/DQM_Theme+(Jon).css">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    <link href="DQM_Theme (Jon).css" rel="stylesheet">
+    <style>        
+    </style>
+</head>
+<body class="Unsele">
+    <div class="exercise"> 
+        <div class="vars">
+            <var id="P_M_Q_Section1">['4']</var> 
+            <var id="P_M_Q_Section2">['3']</var> 
+            <var id="P_M_Q_Section3">['1']</var> 
+            <var id="P_M_Q_Section4">['5']</var> 
+            <var id="P_M_Q_Section5">['2']</var>  
+        </div>
+
+        <div class="problems">
+<!-- 1st Question ======================================================================================================================================================== -->        
+        <div id="1stQuestion" data-weight="1">
+            <div class="question">
+                <p>Question</p>
+            </div>
+
+            <div class="row margin-top-20">
+                <div class="col-sm-5">    
+                </div>
+                <div class="col-sm-2 drop-target jmc-droppable-trihierarchy jmc-trihierarchy-colour-1" data-group="P_M_Q_Section1">   
+                    <p class="text-style-center-bold"></p>
+                </div>
+            </div>
+
+            <div class="row jmc-margin-top-5">
+                <div class="col-sm-4">    
+                </div>
+                <div class="col-sm-4 drop-target jmc-droppable-trihierarchy jmc-trihierarchy-colour-2" data-group="P_M_Q_Section2">   
+                    <p class="text-style-center-bold"></p>
+                </div>
+            </div>
+
+            <div class="row jmc-margin-top-5">
+                <div class="col-sm-3">    
+                </div>
+                <div class="col-sm-6 drop-target jmc-droppable-trihierarchy jmc-trihierarchy-colour-3" data-group="P_M_Q_Section3">   
+                    <p class="text-style-center-bold"></p>
+                </div>
+            </div>
+
+            <div class="row jmc-margin-top-5">
+                <div class="col-sm-2">    
+                </div>
+                <div class="col-sm-8 drop-target jmc-droppable-trihierarchy jmc-trihierarchy-colour-4" data-group="P_M_Q_Section4">   
+                    <p class="text-style-center-bold"></p>
+                </div>
+            </div>
+
+            <div class="row jmc-margin-top-5">
+                <div class="col-sm-1">    
+                </div>
+                <div class="col-sm-10 drop-target jmc-droppable-trihierarchy jmc-trihierarchy-colour-5" data-group="P_M_Q_Section5">   
+                    <p class="text-style-center-bold"></p>
+                </div>
+            </div>
+
+
+            <div class="row margin-top-20 ">
+                <div class="col-sm-1 margin-top-bottom-5">
+                </div>
+                <div class="col-sm-2 margin-top-bottom-5">
+                    <p class="ss-hoverable no-margin ss-draggable jmc-height-62 jmc-draggable-styles3 text-style-center" answer="1">answer</p>
+                </div>
+                <div class="col-sm-2 margin-top-bottom-5">
+                    <p class="ss-hoverable no-margin ss-draggable jmc-height-62 jmc-draggable-styles3 text-style-center" answer="2">answer</p>
+                </div>
+                <div class="col-sm-2 margin-top-bottom-5">
+                    <p class="ss-hoverable no-margin ss-draggable jmc-height-62 jmc-draggable-styles3 text-style-center" answer="3">answer</p>
+                </div>
+                <div class="col-sm-2 margin-top-bottom-5">
+                    <p class="ss-hoverable no-margin ss-draggable jmc-height-62 jmc-draggable-styles3 text-style-center" answer="4">answer</p>
+                </div> 
+                <div class="col-sm-2 margin-top-bottom-5">
+                    <p class="ss-hoverable no-margin ss-draggable jmc-height-62 jmc-draggable-styles3 text-style-center" answer="5">answer</p>
+                </div>
+
+            </div>
+
+            <div class="solution" data-type="category"></div>
+
+            <div class="hints">
+                <p>hint1</p>
+                <p>hint2</p>
+            </div>
+
+        </div>    
+<!-- End of 1st Question ======================================================================================================================================================== -->        
+<!-- 5th Question =================================================================================================================================================================================== -->
+            <div id="5thQuestion" data-weight="1">
+                <div class="vars">
+                  <var id="P4M4Q5correctArray">[0,0,0,0]</var>
+                  <var id="P4M4Q5dragValues">["Policy", "Standards", "Processes", "Procedures"]</var>
+                  <var id="P4M4Q5dVs">function(){ data = SS.Random.uniqueFromArray(P4M4Q5dragValues, 4); return data }()</var>
+                  <var>function() {
+                          var DraggableContent = 0; 
+                          var DraggableDataValue = 0; 
+                          var preventDoubleTap = false;
+
+                          $(".ss-draggable").on('touchstart mousedown', function(){
+                              if (!preventDoubleTap) {
+                                  DraggableContent = $(this).text();
+                                  DraggableDataValue = $(this).data('value');
+                                  for (var i = 0; i < P4M4Q5correctArray.length; i++) {
+                                    if (P4M4Q5correctArray[i] == 0){   
+                                        $('#P4M4Q5-drop-zone-'+[i+1]).droppable('enable');
+                                    }
+                                    else{
+                                        $('#P4M4Q5-drop-zone-'+[i+1]).droppable('disable').addClass('jmc-opacity-holder');
+                                    } 
+                                  }
+                                  preventDoubleTap = true;
+                              }
+                              setTimeout(function(){preventDoubleTap=false;}, 100);
+                          }); 
+                          
+                          $('#P4M4Q5-drop-zone-1').on('drop', function(){ 
+                              P4M4Q5correctArray[0] = DraggableContent;
+                              $('#P4M4Q5draggable'+DraggableDataValue).removeClass("jmc-alternateGrey2");
+                              $('#P4M4Q5draggable'+DraggableDataValue).addClass("jmc-alternateGrey1");
+                              for (var i = 0; i < P4M4Q5correctArray.length; i++) {
+                                  if ( i !== 0 ){
+                                      if (P4M4Q5correctArray[0] == P4M4Q5correctArray[i]){
+                                          P4M4Q5correctArray[i] = 0;
+                                      }
+                                  }    
+                              } 
+                          });
+
+                          $('#P4M4Q5-drop-zone-2').on('drop', function(){ 
+                              P4M4Q5correctArray[1] = DraggableContent;
+                              $('#P4M4Q5draggable'+DraggableDataValue).removeClass("jmc-alternateGrey1");
+                              $('#P4M4Q5draggable'+DraggableDataValue).addClass("jmc-alternateGrey2");
+                              for (var i = 0; i < P4M4Q5correctArray.length; i++) {
+                                  if ( i !== 1 ){
+                                      if (P4M4Q5correctArray[1] == P4M4Q5correctArray[i]){
+                                          P4M4Q5correctArray[i] = 0;
+                                      }
+                                  }    
+                              } 
+                          }); 
+
+                          $('#P4M4Q5-drop-zone-3').on('drop', function(){ 
+                              P4M4Q5correctArray[2] = DraggableContent;
+                              $('#P4M4Q5draggable'+DraggableDataValue).removeClass("jmc-alternateGrey2");
+                              $('#P4M4Q5draggable'+DraggableDataValue).addClass("jmc-alternateGrey1");
+                              for (var i = 0; i < P4M4Q5correctArray.length; i++) {
+                                  if ( i !== 2 ){
+                                      if (P4M4Q5correctArray[2] == P4M4Q5correctArray[i]){
+                                          P4M4Q5correctArray[i] = 0;
+                                      }
+                                  }    
+                              } 
+                          });
+
+                          $('#P4M4Q5-drop-zone-4').on('drop', function(){ 
+                              P4M4Q5correctArray[3] = DraggableContent;
+                              $('#P4M4Q5draggable'+DraggableDataValue).removeClass("jmc-alternateGrey1");
+                              $('#P4M4Q5draggable'+DraggableDataValue).addClass("jmc-alternateGrey2");
+                              for (var i = 0; i < P4M4Q5correctArray.length; i++) {
+                                  if ( i !== 3 ){
+                                      if (P4M4Q5correctArray[3] == P4M4Q5correctArray[i]){
+                                          P4M4Q5correctArray[i] = 0;
+                                      }
+                                  }    
+                              } 
+                          });
+
+                          $(document).on('mousedown', '.reset-wrapper', function(){
+                            P4M4Q5correctArray = [0,0,0,0];
+                            DraggableContent = 0;
+                            $('.ss-draggable').removeClass('jmc-alternateGrey1 jmc-alternateGrey2');
+                          });
+
+                          $(document).on('click', '.console-clicker', function() {
+                          console.log('******************************')
+                          console.log(P4M4Q5correctArray)
+                          console.log('DraggableContent = ' + DraggableContent)
+                          console.log('DraggableDataValue = ' + DraggableDataValue)
+                          });
+                      } ()
+                  </var>
+              </div>
+                <div class="question console-clicker">
+                    <p>Place the following items in their Hierarchical order.</p>
+                    <p class="ghosted">Drag the terms below into their corresponding blank area to complete the Hierarchy.</p>
+                </div>
+               
+                <div class="problem">
+                    <div class="row margin-top-20">
+                        <div class="col-xs-2 jmc-margleft-4-15-per"></div>
+                        <div class="col-xs-7 jmc-border-2-grey-nothrills jmc-alternateGrey1 jmc-padding-5">
+                            <div class="col-xs-12 no-padding">
+                                <div id="P4M4Q5-drop-zone-1" class="drop-target jmc-no-border jmc-height-38 jmc-alternateGrey1"></div>
+                            </div>                                
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-2"></div>
+                        <div class="col-xs-8 jmc-border-2-grey-nothrills jmc-alternateGrey2 jmc-padding-5 jmc-marg-top-5">
+                            <div class="col-xs-12 no-padding">
+                                <div id="P4M4Q5-drop-zone-2" class="drop-target jmc-no-border jmc-height-38 jmc-alternateGrey2"></div>
+                            </div>                                
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-xs-1 jmc-margleft-4-15-per"></div>
+                        <div class="col-xs-9 jmc-border-2-grey-nothrills jmc-alternateGrey1 jmc-padding-5 jmc-marg-top-5">
+                            <div class="col-xs-12 no-padding">
+                                <div id="P4M4Q5-drop-zone-3" class="drop-target jmc-no-border jmc-height-38 jmc-alternateGrey1"></div>
+                            </div>                                
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-xs-1"></div>
+                        <div class="col-xs-10 jmc-border-2-grey-nothrills jmc-alternateGrey2 jmc-padding-5 jmc-marg-top-5">
+                            <div class="col-xs-12 no-padding">
+                                <div id="P4M4Q5-drop-zone-4" class="drop-target jmc-no-border jmc-height-38 jmc-alternateGrey2"></div>
+                            </div>                                
+                        </div>
+                      </div>   
+
+                    <div class="row jmc-margin-top-20-inline-with-ques">
+                        <div class="col-xs-6">
+                            <div id="P4M4Q5draggable1" class="ss-hoverable no-margin ss-draggable text-style-center-bold jmc-white" data-value="1"><var>P4M4Q5dVs[0]</var></div> 
+                            <div id="P4M4Q5draggable2" class="ss-hoverable no-margin ss-draggable text-style-center-bold jmc-white jmc-marg-top-10" data-value="2"><var>P4M4Q5dVs[1]</var></div>                                 
+                        </div>
+                        <div class="col-xs-6"> 
+                            <div id="P4M4Q5draggable3" class="ss-hoverable no-margin ss-draggable text-style-center-bold jmc-white" data-value="3"><var>P4M4Q5dVs[2]</var></div> 
+                            <div id="P4M4Q5draggable4" class="ss-hoverable no-margin ss-draggable text-style-center-bold jmc-white jmc-marg-top-10" data-value="4"><var>P4M4Q5dVs[3]</var></div>
+                        </div>                                
+                    </div>
+                 </div>
+                
+                <div class="solution" data-type="custom">
+                  <div class="instruction"></div>
+                  <div class="guess">1</div>
+                  <div class="validator-function">
+                    return P4M4Q5correctArray[0] == "Policy" &&
+                    P4M4Q5correctArray[1] == "Standards" &&
+                    P4M4Q5correctArray[2] == "Processes" &&
+                    P4M4Q5correctArray[3] == "Procedures" 
+                  </div> 
+                </div>
+            
+        
+                <div class="hints">
+                    <p>A policy is the overarching document.</p>
+                    <p>Procedures are the more detailed steps in a process.</p>
+                </div>
+            </div>    
+<!-- End of 5th Question ============================================================================================================================================================================ -->       
+        </div>
+    </div>
+</body>
+</html>

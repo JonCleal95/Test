@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html data-require="math sipsense">
+<head>
+    <meta https-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="These are question on Data Quality Rules">
+    <meta name="keywords" content="Replace this text with optional tags (key words for search engine)">
+    <meta name="streak_required" content="5">
+    <title>IE Template 19: Drag and Drop Statements Questions</title>
+    <script src="../khan-exercise.js"></script>
+    <script src="https://s3-eu-west-1.amazonaws.com/media.dqrulebooks.bl.ee/Reference_Folder/DQM_ThemeJS.js"></script>
+    <link rel="stylesheet" media="screen" href="https://s3-eu-west-1.amazonaws.com/media.dqrulebooks.bl.ee/Reference_Folder/DQM_Theme+(Jon).css">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    <link href="DQM_Theme (Jon).css" rel="stylesheet">
+    <style>
+    </style>
+</head>
+<body class="Unsele">
+    <div class="exercise"> 
+        <div class="vars">
+            <var id="P_M_StateQuesTerms">["Word1*", "Word2*", "Word3*", "Word4", "Word5", "Word6", "Word7", "Word8", "Word9", "Word10", "Word11", "Word12", "Word13", "Word14", "Word15", "Word16", "Word17", "Word18", "Word19", "Word20", "Word21", "Word22", "Word23", "Word24", "Word25", "Word26", "Word27", "Word28"]</var>
+            <var id="P_M_SQT">function(){ data = SS.Random.uniqueFromArray(P_M_StateQuesTerms, 28); return data }()</var>
+        </div>
+        <div class="problems">
+<!-- 1st Question =============================================================================================================================================================== -->
+        <div id="1stQuestion" data-weight="1">
+            <div class="vars">
+                <var id="P_M_Q_correctArray">[0,0,0]</var> 
+                <var>function() {
+                        var DraggableContent = 0; 
+                        var preventDoubleTap = false;
+
+                        $(".ss-draggable").on('touchstart mousedown', function(){
+                            if (!preventDoubleTap) {
+                              DraggableContent = $(this).text();
+                                for (var i = 0; i < P_M_Q_correctArray.length; i++) {
+                                    if (P_M_Q_correctArray[i] == 0){   
+                                        $('#P_M_Q_-drop-zone-'+[i+1]).droppable('enable');
+                                    }
+                                    else{
+                                        $('#P_M_Q_-drop-zone-'+[i+1]).droppable('disable').addClass('jmc-opacity-holder');
+                                    } 
+                                }                                  
+                                preventDoubleTap = true;
+                            }
+                            setTimeout(function(){preventDoubleTap=false;}, 100);
+                        });
+                        
+                        $('#P_M_Q_-drop-zone-1').on('drop', function(){ 
+                            P_M_Q_correctArray[0] = DraggableContent;
+                            for (var i = 0; i < P_M_Q_correctArray.length; i++) {
+                                if ( i !== 0 ){
+                                    if (P_M_Q_correctArray[0] == P_M_Q_correctArray[i]){
+                                        P_M_Q_correctArray[i] = 0;
+                                    }
+                                }    
+                            } 
+                        });
+
+                        $('#P_M_Q_-drop-zone-2').on('drop', function(){ 
+                            P_M_Q_correctArray[1] = DraggableContent;
+                            for (var i = 0; i < P_M_Q_correctArray.length; i++) {
+                                if ( i !== 1 ){
+                                    if (P_M_Q_correctArray[1] == P_M_Q_correctArray[i]){
+                                        P_M_Q_correctArray[i] = 0;
+                                    }
+                                }    
+                            } 
+                        }); 
+
+                        $('#P_M_Q_-drop-zone-3').on('drop', function(){ 
+                            P_M_Q_correctArray[2] = DraggableContent;
+                            for (var i = 0; i < P_M_Q_correctArray.length; i++) {
+                                if ( i !== 2 ){
+                                    if (P_M_Q_correctArray[2] == P_M_Q_correctArray[i]){
+                                        P_M_Q_correctArray[i] = 0;
+                                    }
+                                }    
+                            } 
+                        }); 
+
+                        var P_M_Q_hintClicked = 0;
+                        $(document).on('mousedown', '.orange', function(){
+                            if( P_M_Q_hintClicked == 0 ){
+                                for (var i = 0; i < P_M_Q_correctArray.length; i++) {
+                                    var inCorrectInput = P_M_Q_correctArray[i];
+                                    $('.P_M_Q_hintclicker:not(:contains(Word1*), :contains(Word2*), :contains(Word3*), :contains('+inCorrectInput+'))').slice(11).css("visibility", "hidden");
+                                    inCorrectInput = 0;  
+                                }  
+                                P_M_Q_hintClicked ++;
+                            }
+                            else{
+                                $('.P_M_Q_hintclicker:not(:contains(Word1*), :contains(Word2*), :contains(Word3*))').addClass('jmc-hidden');
+                                <!--$('.P5M2Q9hintclicker:contains(info55rmal)').addClass('jmc-hidden'); --><!-- THIS IS FOR IF A DISTRACTOR IS SIMILAR TO AN ANSWER-->
+                                for (var i = 0; i < P_M_Q_correctArray.length; i++) {
+                                    if (!(P_M_Q_correctArray[i] == "Word1*" || P_M_Q_correctArray[i] == "Word2*" || P_M_Q_correctArray[i] == "Word3*")){
+                                        P_M_Q_correctArray[i] = 0;
+                                    }    
+                                }
+                                P_M_Q_hintClicked = 0;
+                            }                            
+                        });
+
+                        $(document).on('mousedown', '.reset-wrapper', function() { P_M_Q_correctArray = [0,0,0]; DraggableContent = 0; });
+
+                        $(document).on('click', '.console-clicker', function() {
+                        console.log('******************************')
+                        console.log(P_M_Q_correctArray)
+                        console.log('DraggableContent = ' + DraggableContent)
+                        });
+                    } ()
+                </var>
+            </div>
+
+            <div class="question">
+                <p>Below is an incomplete definition for the term "Country of Incorporation". Using the terms from the selection below, complete the definition.</p> 
+                <p class="ghosted">Complete the definition by dragging terms from the selection below into their appropriate empty box.</p>
+            </div>
+
+            <div class="row jmc-margin-top-20-inline-with-ques jmc-stateQuesStatementHolder console-clicker">       
+                <div class="col-xs-12">
+                    <div class="row jmc-pad-top-bottom-2">
+                       <p class="console-clicker">The</p> 
+                        <div id="P_M_Q_-drop-zone-1" class="col-xs-3 jmc-height-0 drop-target jmc-stateQuesDropZones no-padding"></div>          
+                        <p>in which the </p>
+                        <div id="P_M_Q_-drop-zone-2" class="col-xs-3 jmc-height-0 drop-target jmc-stateQuesDropZones no-padding"></div>
+                        <div id="P_M_Q_-drop-zone-3" class="col-xs-3 jmc-height-0 drop-target jmc-stateQuesDropZones no-padding"></div>
+                        <p>was formed.</p>
+                    </div>
+                </div> 
+            </div>    
+
+            <div class="row jmc-margin-top-20-inline-with-ques jmc-stateQuesTermHolder">
+                <div class="row jmc-pad-top-bottom-2">  
+                    <div class="col-xs-3">
+                        <p class="ss-hoverable no-margin ss-draggable jmc-changing-font jmc-stateQuesTermBoxes P_M_Q_hintclicker"><var>P_M_SQT[0]</var></p>
+                    </div>
+                    <div class="col-xs-3">
+                        <p class="ss-hoverable no-margin ss-draggable jmc-changing-font jmc-stateQuesTermBoxes P_M_Q_hintclicker"><var>P_M_SQT[1]</var></p>
+                    </div>
+                    <div class="col-xs-3">
+                        <p class="ss-hoverable no-margin ss-draggable jmc-changing-font jmc-stateQuesTermBoxes P_M_Q_hintclicker"><var>P_M_SQT[2]</var></p>
+                    </div>
+                    <div class="col-xs-3">
+                        <p class="ss-hoverable no-margin ss-draggable jmc-changing-font jmc-stateQuesTermBoxes P_M_Q_hintclicker"><var>P_M_SQT[3]</var></p>
+                    </div>
+                </div>  
+                <div class="row jmc-pad-top-bottom-2">
+                    <div class="col-xs-3">
+                        <p class="ss-hoverable no-margin ss-draggable jmc-changing-font jmc-stateQuesTermBoxes P_M_Q_hintclicker"><var>P_M_SQT[4]</var></p>
+                    </div>
+                    <div class="col-xs-3">
+                        <p class="ss-hoverable no-margin ss-draggable jmc-changing-font jmc-stateQuesTermBoxes P_M_Q_hintclicker"><var>P_M_SQT[5]</var></p>
+                    </div>     
+                    <div class="col-xs-3">
+                        <p class="ss-hoverable no-margin ss-draggable jmc-changing-font jmc-stateQuesTermBoxes P_M_Q_hintclicker"><var>P_M_SQT[6]</var></p>
+                    </div>
+                    <div class="col-xs-3">
+                        <p class="ss-hoverable no-margin ss-draggable jmc-changing-font jmc-stateQuesTermBoxes P_M_Q_hintclicker"><var>P_M_SQT[7]</var></p>
+                    </div>
+                </div>
+                <div class="row jmc-pad-top-bottom-2">
+                    <div class="col-xs-3">
+                        <p class="ss-hoverable no-margin ss-draggable jmc-changing-font jmc-stateQuesTermBoxes P_M_Q_hintclicker"><var>P_M_SQT[8]</var></p>
+                    </div>
+                    <div class="col-xs-3">
+                        <p class="ss-hoverable no-margin ss-draggable jmc-changing-font jmc-stateQuesTermBoxes P_M_Q_hintclicker"><var>P_M_SQT[9]</var></p>
+                    </div>
+                    <div class="col-xs-3">
+                        <p class="ss-hoverable no-margin ss-draggable jmc-changing-font jmc-stateQuesTermBoxes P_M_Q_hintclicker"><var>P_M_SQT[10]</var></p>
+                    </div>
+                    <div class="col-xs-3">
+                        <p class="ss-hoverable no-margin ss-draggable jmc-changing-font jmc-stateQuesTermBoxes P_M_Q_hintclicker"><var>P_M_SQT[11]</var></p>
+                    </div>
+                </div>
+                <div class="row jmc-pad-top-bottom-2">                         
+                    <div class="col-xs-3">
+                        <p class="ss-hoverable no-margin ss-draggable jmc-changing-font jmc-stateQuesTermBoxes P_M_Q_hintclicker"><var>P_M_SQT[12]</var></p>
+                    </div>
+                    <div class="col-xs-3">
+                        <p class="ss-hoverable no-margin ss-draggable jmc-changing-font jmc-stateQuesTermBoxes P_M_Q_hintclicker"><var>P_M_SQT[13]</var></p>
+                    </div>
+                    <div class="col-xs-3">
+                        <p class="ss-hoverable no-margin ss-draggable jmc-changing-font jmc-stateQuesTermBoxes P_M_Q_hintclicker"><var>P_M_SQT[14]</var></p>
+                    </div>
+                    <div class="col-xs-3">
+                        <p class="ss-hoverable no-margin ss-draggable jmc-changing-font jmc-stateQuesTermBoxes P_M_Q_hintclicker"><var>P_M_SQT[15]</var></p>
+                    </div>
+                </div>
+                <div class="row jmc-pad-top-bottom-2"> 
+                    <div class="col-xs-3">
+                        <p class="ss-hoverable no-margin ss-draggable jmc-changing-font jmc-stateQuesTermBoxes P_M_Q_hintclicker"><var>P_M_SQT[16]</var></p>
+                    </div>
+                    <div class="col-xs-3">
+                        <p class="ss-hoverable no-margin ss-draggable jmc-changing-font jmc-stateQuesTermBoxes P_M_Q_hintclicker"><var>P_M_SQT[17]</var></p>
+                    </div>    
+                    <div class="col-xs-3">
+                        <p class="ss-hoverable no-margin ss-draggable jmc-changing-font jmc-stateQuesTermBoxes P_M_Q_hintclicker"><var>P_M_SQT[18]</var></p>
+                    </div>
+                    <div class="col-xs-3">
+                        <p class="ss-hoverable no-margin ss-draggable jmc-changing-font jmc-stateQuesTermBoxes P_M_Q_hintclicker"><var>P_M_SQT[19]</var></p>
+                    </div>
+                </div>
+                <div class="row jmc-pad-top-bottom-2"> 
+                    <div class="col-xs-3">
+                        <p class="ss-hoverable no-margin ss-draggable jmc-changing-font jmc-stateQuesTermBoxes P_M_Q_hintclicker"><var>P_M_SQT[20]</var></p>
+                    </div>
+                    <div class="col-xs-3">
+                        <p class="ss-hoverable no-margin ss-draggable jmc-changing-font jmc-stateQuesTermBoxes P_M_Q_hintclicker"><var>P_M_SQT[21]</var></p>
+                    </div>
+                    <div class="col-xs-3">
+                        <p class="ss-hoverable no-margin ss-draggable jmc-changing-font jmc-stateQuesTermBoxes P_M_Q_hintclicker"><var>P_M_SQT[22]</var></p>
+                    </div>
+                    <div class="col-xs-3">
+                        <p class="ss-hoverable no-margin ss-draggable jmc-changing-font jmc-stateQuesTermBoxes P_M_Q_hintclicker"><var>P_M_SQT[23]</var></p>
+                    </div>
+                </div>
+                <div class="row jmc-pad-top-bottom-2"> 
+                    <div class="col-xs-3">
+                        <p class="ss-hoverable no-margin ss-draggable jmc-changing-font jmc-stateQuesTermBoxes P_M_Q_hintclicker"><var>P_M_SQT[24]</var></p>
+                    </div>
+                    <div class="col-xs-3">
+                        <p class="ss-hoverable no-margin ss-draggable jmc-changing-font jmc-stateQuesTermBoxes P_M_Q_hintclicker"><var>P_M_SQT[25]</var></p>
+                    </div>
+                    <div class="col-xs-3">
+                        <p class="ss-hoverable no-margin ss-draggable jmc-changing-font jmc-stateQuesTermBoxes P_M_Q_hintclicker"><var>P_M_SQT[26]</var></p>
+                    </div>
+                    <div class="col-xs-3">
+                        <p class="ss-hoverable no-margin ss-draggable jmc-changing-font jmc-stateQuesTermBoxes P_M_Q_hintclicker"><var>P_M_SQT[27]</var></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="solution" data-type="custom">
+                <div class="instruction"></div>
+                <div class="guess">1</div>
+                <div class="validator-function">
+                    var A = P_M_Q_correctArray[0];
+                    var B = P_M_Q_correctArray[1];
+                    var C = P_M_Q_correctArray[2];
+                    
+                    return A == "Word1*" && B == "Word2*" && C == "Word3*"  
+                </div> 
+            </div>
+
+            <div class="hints">
+                <p>Some options have been removed.</p>
+                <p>Some more options have been removed.</p>
+            </div>
+
+        </div>    
+<!-- End of 1st Question ======================================================================================================================================================== -->
+ </div>
+    </div>
+</body>
+</html>
